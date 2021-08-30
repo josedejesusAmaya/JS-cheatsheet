@@ -212,12 +212,12 @@
  	[[cross-origin-resource-sharing-ablauf.png]]
 	
 - Long polling   
-	[Long polling](https://en.wikipedia.org/wiki/Push_technology#Long_polling) is essentially a more efficient form of the original polling technique. Making repeated requests to a server wastes resources, as each new incoming connection must be established, the HTTP headers must be parsed, a query for new data must be performed, and a response (usually with no new data to offer) must be generated and delivered. The connection must then be closed, and any resources cleaned up. Rather than having to repeat this process multiple times for every client until new data for a given client becomes available, long polling is a technique where the server elects to hold a client’s connection open for as long as possible, delivering a response only after data becomes available or a timeout threshold has been reached.
+	[Long polling](https://en.wikipedia.org/wiki/Push_technology#Long_polling) is a technique where the server elects to hold a client’s connection open for as long as possible, delivering a response only after data becomes available or a timeout threshold has been reached.
 	
-	Implementation is mostly a server-side concern. On the client side, only a single request to the server needs to be managed. When the response is received, the client can initiate a new request, repeating this process as many times as is necessary. The only difference to basic polling, as far as the client is concerned, is that a client performing basic polling may deliberately leave a small time window between each request so as to reduce its load on the server, and it may respond to timeouts with different assumptions than it would for a server that does not support long polling. With long polling, the client may be configured to allow for a longer timeout period (via a `Keep-Alive` header) when listening for a response – something that would usually be avoided seeing as the timeout period is generally used to indicate problems communicating with the server.   
+	With long polling, the client may be configured to allow for a longer timeout period (via a `Keep-Alive` header) when listening for a response – something that would usually be avoided seeing as the timeout period is generally used to indicate problems communicating with the server.   
 	[[long-polling.png]]   
 	
-	Also, the server needs to manage the unresolved state of multiple connections, and it may need to implement strategies for preserving session state when multiple servers and load balancers are in use (commonly referred to as session “stickiness”). It also needs to gracefully handle connection timeout issues, which are much more likely to occur than with designed-for-purpose protocols such as [WebSockets](https://www.ably.io/topic/websockets), a standard which did not arrive until years after long polling was established as a conventional technique for pseudo-realtime communication.
+	Also, the server needs to manage the unresolved state of multiple connections.
 	
 - WebSockets API overview   
 	The `WebSocket` protocol, described in the specification [RFC 6455](http://tools.ietf.org/html/rfc6455) provides a way to exchange data between browser and server via a persistent connection. The data can be passed in both directions as “packets”, without breaking the connection and additional HTTP-requests.
@@ -280,11 +280,8 @@
 	- [`MessageEvent`](https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent)
 		The event sent by the WebSocket object when a message is received from the server.
 	
-- HTTP 2.0 overview   
-	Since its inception in the early nineties, HTTP has seen only a few major revisions. The most recent version, HTTP1.1 has served the cyber world for over 15 years. Web pages in today's era of dynamic information updates, resource-intensive media content formats, and excessive inclination toward web performance have placed older protocol technologies in the legacy category. These trends demand significant HTTP/2 changes to improve the internet experience.
-	[[http-timeline.png]]
-	
-	In February 2015, the [ietf](https://www.ietf.org/) (Internet Engineering Working Group) an HTTP Working Group reviewed and developed the second version of the application in the form of an HTTP/2 protocol. In May 2015, the HTTP/2 application specification was officially standardized in response to the protocol [SPDY](https://es.wikipedia.org/wiki/SPDY) supports HTTP.
+- HTTP 2.0 overview  
+	In May 2015, the HTTP/2 application specification was officially standardized in response to the protocol [SPDY](https://es.wikipedia.org/wiki/SPDY) supports HTTP.
 	
 	The main goal of research and development of a new version of HTTP is centered around three qualities rarely associated with a single network protocol without requiring additional networking technologies of high performance, simplicity, and robustness. These goals are achieved by introducing features that reduce latency in processing browser requests with techniques such as multiplexing, compression, prioritization, and server push request.
 	

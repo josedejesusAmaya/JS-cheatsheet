@@ -1,10 +1,11 @@
 ## Module 01:
 - ### How to run JS
-	1. Command line: with nodejs
+	Command line: with nodejs
 	```js
 		node index.js
 	```
-	2. From the browser: Create a HTML file that references to JS script.
+	Embedding JS in HTML
+	From the browser: Create a HTML file that references to JS script.
 	```html
 		<html>
 			<head>
@@ -15,7 +16,13 @@
 			</body>
 		</html>
 	```
-	3. From the Browser console: ```ctrl+shift+J```
+	A script that will not run until after the page has loaded with the boolean attribute `defer`. Should only be used if the `src` attribute is present.
+	
+	If `async` is present: The script is executed asynchronously with the rest of the page.
+	
+	If neither `async` or `defer` is present: The script is fetched and executed inmediately, before the browser continues parsing the page.
+	
+	From the Browser console: ```ctrl+shift+J``` <- inspect
 - ### JS syntax
 	1. Variable Asignment:
 	```js

@@ -1,0 +1,7 @@
+1. [Web API Libraries | Spotify for Developers](https://developer.spotify.com/documentation/web-api/libraries/)
+2. [thelinmichael/spotify-web-api-node: A Node.js wrapper for Spotify's Web API. (github.com)](https://github.com/thelinmichael/spotify-web-api-node)
+3. [Web API Tutorial | Spotify for Developers](https://developer.spotify.com/documentation/web-api/quick-start/)
+4. [web-api-auth-examples/app.js at master · spotify/web-api-auth-examples (github.com)](https://github.com/spotify/web-api-auth-examples/blob/master/authorization_code/app.js)
+5. [Authorization Guide | Spotify for Developers](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
+6. [Anatomy of an HTTP Transaction | Node.js (nodejs.org)](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/)
+7. [Web API Reference | Spotify for Developers](https://developer.spotify.com/documentation/web-api/reference/)

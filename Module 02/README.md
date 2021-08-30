@@ -95,11 +95,15 @@
 		console.log(arr);//returns ['d', 'c', 'b', 'a']
 	```
 	- ```slice()``` method: returns a part of the array, and the original remains intact.
+	-  If start is undefined, then the slice begins at index 0.
+	-   This is exclusive of the element at the index 'end'
 	```js
 		let arr =  ['a', 'b', 'c', 'd'];
 		console.log(arr.slice(1,2));//returns ['b']
 	```
 	- ```splice()``` method: Just like the "slice();" method, this also targets an array and returns the targeted array, but it causes a permanent change in the array.
+	- Start: The zero-based location in the array from which to start removing elements.
+	- The number of elements to remove.
 	```js
 		let arr = [1, 2, 3, 4, 5, 'a', 'b', 'c'];
 		console.log(arr.splice(5, 3));//returns ['a', 'b', 'c']
@@ -151,6 +155,10 @@
 	```
 	For all the methods available checkout [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object#static_methods)
 - ### Object to primitive conversion
+	What happens when objects are added `obj1 + obj2`, subtracted `obj1 - obj2` or printed using `alert(obj)`?
+	JavaScript doesn’t exactly allow to customize how operators work on objects.
+	That’s an important limitation, as the result of `obj1 + obj2` can’t be another object!
+	
 	You can convert an object to a primitive value by using methods from the prototype 	object, this methods must be overrided in order to convert it in whatever you want.
 	```js
 		const socks = {
@@ -191,6 +199,7 @@
 - ### Object property flags and descriptors
 	Object properties, besides a value they have flags.
 	- Enumerable flag defines if the property is enumerable and show up in for ... in loops, unless the property's key is a Symbol. If it’s set to false then it also won’t be picked by Object.assign() or spread operator.
+	- To defineProperty() method its necesary to define the name of the new property as string.
 	```js
 		var obj = {};
 		Object.defineProperty(obj, 'a', {
