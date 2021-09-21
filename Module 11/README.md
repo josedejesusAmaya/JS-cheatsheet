@@ -343,6 +343,25 @@
 	```js
 		allCookies = document.cookie;
 	```
+
+- Local Storage
+	It allows the saving of key/value pairs in a web browser and it stores data with no expiration date. localStorage can only be accessed via JavaScript, and HTML5. However, the user has the ability to clear the browser data/cache to erase all localStorage data.
+	Pros:
+	-	Stores data with no expiration date.
+	-	Storage limit is about 5MB.
+	-	Data is never transferred to the server.
+
+	Cons:
+	-	Plaintext, hence not secure by design.
+	-	Limited to string data, hence need to be serialized.
+	-	Can only be read on client-side.
+
+- Session Storage
+	-	Stores data only for a session, meaning that the data is stored until the browser (or tab) is closed.
+	-	Data is never transferred to the server.
+	-	Can only be read on client-side.
+	-	Storage limit is about 5-10MB.
+	-	Opening multiple tabs/windows with the same URL creates sessionStorage for each tab/window.
 	
 - Network basics   
 	For better purpose I let links to good links about the fundamentals of networking because this topic is too general and we can understand better in a separate document with images and graphs too.

@@ -390,18 +390,26 @@ We can return values from a function when we use the ```return``` statement, thi
 		console.log(fruits.length);	// note that length is a property, not a method
 	```
 	- Iterating: you can do it with a simple ```for ``` statement, or with a ```for...of```, or with the protoptype method ```forEach()```:
-	```js
-		for (let i = 0; i < 10; i++)
-			console.log(arr[i]);
+		```js
+			for (let i = 0; i < 10; i++)
+				console.log(arr[i]);
 
-		for (let item of arr)
-			consol.log(item);
+			for (let item of arr)
+				consol.log(item);
 
-		arr.forEach((item,index) => {
-			console.log(item, index);
-		});
-	```
-	- Add item at the end of the array with the ```push()``` method
+			arr.forEach((item,index) => {
+				console.log(item, index);
+			});
+		```
+		There is no way to stop or break a ```forEach()``` loop other than by throwing an exception but this is considered as a bad practice.
+		Early termination may be accomplished with:
+		-   A [`for`...`of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) loop
+		-   [`Array.prototype.every()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+		-   [`Array.prototype.some()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+		-   [`Array.prototype.find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+		-   [`Array.prototype.findIndex()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex)
+	
+	- Add item at the end of the array with the ```push()``` method:
 	```js
 		let newfruits = fruits.push('Orange'); // push method add new element and returns the new length of the array
 	```

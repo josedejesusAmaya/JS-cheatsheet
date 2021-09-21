@@ -31,6 +31,8 @@
 1. [Cookies: what they are, what types there are and what happens if you disable them (xataka.com)](https://www.xataka.com/basics/que-cookies-que-tipos-hay-que-pasa-desactivas)
 2. [JavaScript Cookies (w3schools.com)](https://www.w3schools.com/js/js_cookies.asp)
 3. [Document.cookie - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie)
+### Local Storage and Session Storage
+1. [Local Storage, Session Storage, and Cookies](https://krishankantsinghal.medium.com/local-storage-vs-session-storage-vs-cookie-22655ff75a8)
 ### Network basics
 1. [The Fundamentals of Networking | IBM](https://www.ibm.com/cloud/learn/networking-a-complete-guide)
 2. [Learn Networking Basics (commotionwireless.net)](https://commotionwireless.net/docs/cck/networking/learn-networking-basics/)
