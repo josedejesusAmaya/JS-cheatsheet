@@ -164,13 +164,12 @@ There are already a small set of primitive types available in JavaScript:
 	5. `string`, 
 	6. `symbol`, and 
 	7. `undefined`, 
-	8. `null`
 	Which you can use in an interface. TypeScript extends this list with a few more, such as: 
-	9. `any` (allow anything), 
-	10. [`unknown`](https://www.typescriptlang.org/play#example/unknown-and-never) (ensure someone using this type declares what the type is), 
-	11. [`never`](https://www.typescriptlang.org/play#example/unknown-and-never) (it’s not possible that this type could happen), and 
-	12. `void` (a function which returns 
-	13. `undefined` or has no return value).
+	8. `any` (allow anything), 
+	9. [`unknown`](https://www.typescriptlang.org/play#example/unknown-and-never) (ensure someone using this type declares what the type is), 
+	10. [`never`](https://www.typescriptlang.org/play#example/unknown-and-never) (it’s not possible that this type could happen), and 
+	11. `void` (a function which returns 
+	12. `undefined` or has no return value).
 
 ### Defining custom and anonymous types
 TS offers three ways to define custom types:

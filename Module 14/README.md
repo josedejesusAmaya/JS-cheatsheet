@@ -189,7 +189,7 @@ As those 3 formats are not that easy to read, hard to analyze for static code an
   	import add from "./add";
   	add(4); // = 8
 ```
-Moreover, es modules can be statically analyze which allow build tools (like Webpack or Rollup) to perform tree-shaking on the code. Tree-shaking is a process that removes unused code from bundles.
+Moreover, ESM modules can be statically analyze which allow build tools (like Webpack or Rollup) to perform tree-shaking on the code. Tree-shaking is a process that removes unused code from bundles.
 
 Unfortunately, this format still have 2 cons (but they're improving):
 

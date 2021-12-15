@@ -72,31 +72,31 @@
 		let arr =  ['a', 'b', 'c', 'd']; //first array
 		let arr2 = [true, false, true]; //second array
 		console.log(arr.concat(arr2));//returns ["a", "b", "c", "d", true, false, true]
-		console.log(arr);//returns ['a', 'b', 'c', 'd']
-		console.log(arr2);//returns[true, false, true]
+		console.log(arr); //returns ['a', 'b', 'c', 'd']
+		console.log(arr2); //returns[true, false, true]
 	```
 	- ```join()``` methods: joins all the elements in an array to create a string, and does not affect or modify 
 	```js
 		let arr =  ['a', 'b', 'c', 'd'];
-		console.log(arr.join(''));//returns 'abcd'
-		console.log(arr.join('-'));//returns 'a-b-c-d'
+		console.log(arr.join('')); //returns 'abcd'
+		console.log(arr.join('-')); //returns 'a-b-c-d'
 		console.log(arr)//returns ['a', 'b', 'c', 'd']
 	```
-	- ```reverse()``` method: takes an array, and reverses it. is reverse the original array and returns it.
+	- ```reverse()``` method: takes an array, and reverses it. Reverse the original array and returns it.
 	```js
 		let arr =  ['a', 'b', 'c', 'd'];
-		console.log(arr.reverse());//returns ['d', 'c', 'b', 'a']
+		console.log(arr.reverse()); //returns ['d', 'c', 'b', 'a']
 		console.log(arr);//returns ['d', 'c', 'b', 'a']
 	```
 	- ```sort()``` method: sorts the array, causing permanent change to the array.
 	```js
-		let arr =  ['a', 'b', 'c', 'd'];
-		console.log(arr.reverse());//returns ['d', 'c', 'b', 'a']
-		console.log(arr);//returns ['d', 'c', 'b', 'a']
+		let arr = ['d', 'c', 'b', 'a'];
+		console.log(arr.sort()); //returns ['a', 'b', 'c', 'd']
+		console.log(arr);//returns ['a', 'b', 'c', 'd']
 	```
 	- ```slice()``` method: returns a part of the array, and the original remains intact.
-	-  If start is undefined, then the slice begins at index 0.
-	-   This is exclusive of the element at the index 'end'
+	If start is undefined, then the slice begins at index 0.
+	This is exclusive of the element at the index 'end'
 	```js
 		let arr =  ['a', 'b', 'c', 'd'];
 		console.log(arr.slice(1,2));//returns ['b']
@@ -113,10 +113,10 @@
 	JS has an Array.prototype method ```sort()```  to sort arrays. This method sorts the array and returns a new array sorted. It can recieve a compare function as a parameter.
 	```js
 		let arr = [8,3,1,6];
-		let arrSorted = [...arr].sort(); // [1,3,6,8]
+		let arrSorted = arr.sort(); // [1,3,6,8]
 		
 		arr = [123,89,9,0,11111];
-		arrSorted = [...arr].sort(); // [0, 11111, 123, 89, 9]
+		arrSorted = arr.sort(); // [0, 11111, 123, 89, 9]
 	```
 	The default sort() method converts elements into strings and sort them according to the UTF-16 code units values. If you dont need the default behavior you can use a copare function.
 	```js
@@ -124,9 +124,9 @@
 		
 		sort(compareFunction); 
 		
-		arrSorted = [...arr].sort((firstElement, secondElement) => { ... }); 
+		arrSorted = arr.sort((firstElement, secondElement) => { ... }); 
 		
-		arrSorted = [...arr].sort((a, b) => a - b ); // [0, 9, 89, 123, 11111]
+		arrSorted = arr.sort((a, b) => a - b ); // [0, 9, 89, 123, 11111]
 	```
 	- ```firstElement```: the first element of comparision.
 	- ```secondElement```: the second element of comparision.
@@ -285,7 +285,7 @@ For more examples checkout [here](https://www.w3docs.com/learn-javascript/proper
 		}
 		const instanceDemo = new Demo();
 		
-		Demo.prototype.staticMethod();	//Hi Im a static method
+		Demo.staticMethod();	//Hi Im a static method
 		instanceDemo.staticMethod();	// Throw Error!
 	```
 	The Object class has static methods that are available in all JS.

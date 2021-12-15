@@ -71,7 +71,7 @@
                     const c=3;
                 }
                 //b and c are not accessible outside of the block
-                console.log(b, c); //undefined
+                console.log(b, c); // Cannot access 'b' or 'C' before initialization
                 let b=2;
                 const c=3;
                 //The variables a and c can be declared out of the block
@@ -105,7 +105,7 @@
                     const c=3;
                 }
                 //c is not accessible outside of the block
-                console.log(c); //undefined
+                console.log(c); //Cannot access 'c' before initialization
                 const c=3;
                 console.log(c); //3
             }
@@ -135,11 +135,17 @@
         ```js
             b=2;
             c=3
-            console.log(b);//Reference error
-            console.log(c);
+            console.log(b); //Uncaught ReferenceError: Cannot access 'b' before initialization
+            console.log(c); //Uncaught ReferenceError
             let b;
             const c;
         ```
+		
+		```js
+         b=2;
+         let b;
+         console.log(b); //Uncaught ReferenceError: Cannot access 'b' before initialization
+     	```
     - Only declarations are hoisted
         - Javascript only hoisted the declaration and not the initialization, if you want to use hoisted you will need to initialize the variable before to use it.
         ```js
@@ -190,9 +196,16 @@
         let chivas={
             campeonatos:12,
             numeroUpdates:0,
-            addCampeonato(x=1)  {this.campeonatos=this.campeonatos+x; this.numeroUpdates++;},
-            getCampeonatos(){ return this.campeonatos;},
-            getUpdates(){ return this.numeroUpdates;}
+            addCampeonato(x=1){
+				this.campeonatos=this.campeonatos+x; 
+				this.numeroUpdates++;
+			},
+            getCampeonatos(){ 
+				return this.campeonatos;
+			},
+			getUpdates(){ 
+				return this.numeroUpdates;
+			}
         }
 
         chivas.addCampeonato(1);
@@ -261,13 +274,13 @@
             let countries=["Mexico", "US", "Germany", "Japan"];
             //filter function is called inside foo function
             function filter(name){
-                return countries.filter((country)=>country!==name);;
+                return countries.filter((country) => country !== name);;
             }
 
             return filter(countryFilter);
         }
 
-        console.log(foo("Mexico"));
+        console.log(foo("Mexico")); // ["US", "Germany", "Japan"]
     ```
     - Here the nested function filter() is made for convenience. It can access the outer variables and so can return the list filtered
 - #### Code blocks

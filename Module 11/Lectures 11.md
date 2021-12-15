@@ -9,11 +9,15 @@
 ### JSONP
 1. [JSONP (w3schools.com)](https://www.w3schools.com/js/js_json_jsonp.asp)
 2. [How to make a JSONP request from Javascript without JQuery? - Stack Overflow](https://stackoverflow.com/questions/6132796/how-to-make-a-jsonp-request-from-javascript-without-jquery)
+### Web Services
+1. [What are Web Services? (tutorialspoint.com)](https://www.tutorialspoint.com/webservices/what_are_web_services.htm)
+2. [What are the differences between REST and SOAP? (chakray.com)](https://www.chakray.com/what-are-the-differences-between-rest-and-soap/)
 ### REST
 1. [What is REST? | Codecademy](https://www.codecademy.com/articles/what-is-rest)
 ### URL, Encoding strings
 1. [What is a URL? - Learn web development | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL)
-2. [HTML URL Encoding Reference (w3schools.com)](https://www.w3schools.com/tags/ref_urlencode.ASP)
+2. [HTML URL Encoding Reference (w3schools.com)](https://www.w3schools.com/tags/ref_urlencode.ASP).
+3. [¿SOAP o REST? – Timbrado Masivo CFDI (sw.com.mx)](https://developers.sw.com.mx/knowledge-base/soap-o-rest/).
 ### Cross-Origin Requests
 1. [HTTP | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTTP)
 2. [Cross-Origin Resource Sharing (CORS) - HTTP | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)

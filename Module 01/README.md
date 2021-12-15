@@ -110,11 +110,13 @@
 
 			// Example, the same goes with "break"
 			loop1:
-			for (i = 0; i < 3; i++) {  //The first for statement is labeled "loop1"
+			for (let i = 0; i < 3; i++) {  //The first for statement is labeled "loop1"
 				loop2:
-				for (j = 0; j < 3; j++) {  //The second for statement is labeled "loop2"
+				for (let j = 0; j < 3; j++) {  //The second for statement is labeled "loop2"
 					if (i === 1 && j === 1) {
 						continue loop1; //skip to the next iteration of the "loop1" loop
+						// break loop1; // finish both loops
+						// break; // same behaviour of continue loop1
 					}
 					console.log('i = ' + i + ', j = ' + j);
 				}
@@ -137,7 +139,7 @@
 				doStuff();
 				if (eo)
 					continue;
-				console.log("if break is executed, this won´t appear only in the iteration that 'continue' was called, it won't end the loop like 'break' does");
+				console.log("if continue is executed, this won´t appear only in the iteration that 'continue' was called, it won't end the loop like 'break' does");
 			}
 		```
 		- ```for...in``` statement: iterates a specified variable over all de properties of an **object**. supports (continue, break). It iterates over property names.
@@ -158,7 +160,7 @@
 		```
 		- ```for...of``` statement: creates a loop iterating over [iterable objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) ( [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map), [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set),[arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object). It iterates over property values:
 		```js
-			for (variable of object)
+			for (variable of array)
 				statement
 			const arr = [3, 5, 7];
 			// Example
@@ -173,13 +175,14 @@
 			const expr = 'Papayas';
 			switch (expr) {
   				case 'Oranges':
-    				console.log('Oranges are $0.59 a pound.');
-    				break;
+    					console.log('Oranges are $0.59 a pound.');
+    					break;
   				case 'Mangoes':
+						break;
   				case 'Papayas':
-    				console.log('Mangoes and papayas are $2.79 a pound.');
-    				// expected output: "Mangoes and papayas are $2.79 a pound."
-    				break;
+    					console.log('Mangoes and papayas are $2.79 a pound.');
+    					// expected output: "Mangoes and papayas are $2.79 a pound."
+    					break;
   				default:
     				console.log(`Sorry, we are out of ${expr}.`);
 			}
@@ -268,7 +271,7 @@
 		- Naming a function is similar to name a variable. You should write descriptive names for your functions.
 		- The body of the function is written within ```{}```
 	```js
-		function nameOfFunction () {
+		function nameOfFunction() {
 			// function body   
 		}
 	```
@@ -311,9 +314,9 @@ We can return values from a function when we use the ```return``` statement, thi
 		// If we use those operators on non numerical values we get NaN as result
 		result = 'hello' - 'world'; // results NaN
 		// Boolean conversion to number true = 1, false = 0
-		result = '4' - true; // 3
-		result = '4' + true; // 5
-		result = '4' + false; // 4
+		result = 4 - true; // 3
+		result = 4 + true; // 5
+		result = 4 + false; // 4
 	```
 	2. Explicit Conversion: manual type conversion.
 	```js

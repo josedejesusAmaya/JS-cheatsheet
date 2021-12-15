@@ -154,6 +154,21 @@
 		// or document.head.appendChild(script) in modern browsers
 	```
 	
+- Web Services
+	A web service is a collection of open protocols and standards used for exchanging data between applications or systems.
+	-   Is available over the Internet or private (intranet) networks. 
+	-   Uses a standardized XML messaging system.
+	-   Is not tied to any one operating system or programming language.
+	-   Is self-describing via a common XML grammar. 
+	-   Is discoverable via a simple find mechanism.
+   
+ -  Components of Web Services
+	-   SOAP (Simple Object Access Protocol).
+	-   UDDI (Universal Description, Discovery and Integration).
+	-   WSDL (Web Services Description Language).
+
+The key to achieving all these benefits is a common program-to-program communication model, built on existing and emerging standards such as HTTP, JSON, SOAP, WSDL, and XML (Extensible Markup Language).
+	
 - REST   
 	REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.
 	Separating the user interface concerns from the data storage concerns, we improve the flexibility of the interface across platforms and improve scalability by simplifying the server components. Additionally, the separation allows each component the ability to evolve independently.

@@ -274,7 +274,7 @@
 			prop: 42,
 			func: function() {
 				return this.prop;
-			},
+				},
   		};
 		console.log(test.func())	//42
 	```
@@ -393,7 +393,7 @@
 		
 		var greeting = sayHi.bind(person);	//hard binding into person context
 		
-		greeting(); // "Hola, me llamo Juan"
+		greeting(); // "Hi, my name is Juan"
 		
 		function Person(greet) {
 			this.name = "Pedro";
@@ -436,8 +436,8 @@
 	JavaScript has the Object.freeze() function. Calling the function after creating your objects marks all the properties of the object immutable.
 	If you try to reassign a property value, it will silently fail or in case you have strict mode turned on, an exception will be thrown. 
 	```js
-		obj4 = {name:"James"}
-		obj5 = obj4;
+		const obj4 = {name:"James"}
+		const obj5 = obj4;
 		
 		Object.freeze(obj4);
 		

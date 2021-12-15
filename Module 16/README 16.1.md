@@ -16,30 +16,30 @@
 	```
 -   What useReducer does?
 	An alternative to [`useState`]. Accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a `dispatch` method.
-```
-const initialState = {count: 0};
+```jsx
+	const initialState = {count: 0};
+	function reducer(state, action) {
+  		switch (action.type) {
+    		case 'increment':
+      			return {count: state.count + 1};
+    		case 'decrement':
+      			return {count: state.count - 1};
+    		default:
+      			throw new Error();
+  		}
+	}
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'increment':
-      return {count: state.count + 1};
-    case 'decrement':
-      return {count: state.count - 1};
-    default:
-      throw new Error();
-  }
-}
-
-function Counter() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <>
-      Count: {state.count}
-      <button onClick={() => dispatch({type: 'decrement'})}>-</button>
-      <button onClick={() => dispatch({type: 'increment'})}>+</button>
-    </>
-  );
-}
+	function Counter() {
+  		const [state, dispatch] = useReducer(reducer, initialState);
+  			return (
+    			<>
+      				Count: {state.count}
+      				<button onClick={() => dispatch({type: 'decrement'})}>-</button>
+      				<button onClick={() => dispatch({type: 'increment'})}>+</button>
+    			</>
+  		);
+	}
+	
 ```
 dispatch() is the method used to dispatch actions and trigger state changes to the store.
 
@@ -51,7 +51,7 @@ dispatch() is the method used to dispatch actions and trigger state changes to t
 -   What is React context?
 	Context provides a way to pass data through the component tree without having to pass props down manually at every level.
 	Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language.
-```
+```jsx
 // Context lets us pass a value deep into the component tree
 // without explicitly threading it through every component.
 // Create a context for the current theme (with "light" as the default).const ThemeContext = React.createContext('light');
@@ -103,7 +103,7 @@ class ThemedButton extends React.Component {
 	A custom hook allows you to extract some components logic into a reusable function.
 	A custom hook is a Javascript function that starts with _use_ and that call can other hooks. Remember that components and hooks are functions, so we are really not creating any new concepts here. We are just refactoring our code into another function to make it reusable.
 	- I'll create a new file called _useWindowWidth.js_
-```
+```jsx
 import { useState, useEffect } from "react";
 
 const useWindowsWidth = () => {
@@ -125,8 +125,7 @@ const useWindowsWidth = () => {
 export default useWindowsWidth;
 ```
 We extracted this functionality inside this _useWindowWidth_ function. Now, we can import it anywhere we want to use it!
-
-```
+```jsx
 import React from 'react'
 import useWindowWidth from './useWindowWidth.js'
 
@@ -159,16 +158,32 @@ Whereas a document-fragment has:
 **This means a div has more methods and properties available (like innerHTML).**
 
 The **Fragments** eliminate the wrapper div which can cause problems with invalid HTML and stayling of the components plus the fact that they are faster and the DOM is less cluttered (mess up).
-```
-<React.Fragment>
-   Hello world
-</React.Fragment>
+```jsx
+	<React.Fragment>
+   		Hello world
+	</React.Fragment>
 ```
 Short Syntax:
-```
-<>
-   Hello world
-</>
+```jsx
+	<>
+   		Hello world
+	</>
 ```
 
 **You can't add properties like key with this syntax.**
+
+### Why Props are immutable?
+A component should manage its own state, but it should not manage its own props. `props` is essentially "state that is managed by the component owner." That's why props are _immutable_.
+
+React docs also recommends to treat state as if it's immutable. That is because by manipulating `this.state` directly you are circumventing React’s state management, which can be potentially dangerous as calling `setState()` afterwards may replace the _mutation_ you made.
+[reactjs - Why are React props immutable? - Stack Overflow](https://stackoverflow.com/questions/47471131/why-are-react-props-immutable)
+[Components and Props – React (reactjs.org)](https://reactjs.org/docs/components-and-props.html#props-are-read-only)
+
+### What's virtual DOM?
+The virtual DOM (VDOM) is a programming concept where an ideal, or “virtual”, representation of a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This process is called [reconciliation](https://reactjs.org/docs/reconciliation.html).
+
+This approach enables the declarative API of React: You tell React what state you want the UI to be in, and it makes sure the DOM matches that state.
+
+### The Diffing Algorithm
+
+When diffing two trees, React first compares the two root elements. The behavior is different depending on the types of the root elements.
