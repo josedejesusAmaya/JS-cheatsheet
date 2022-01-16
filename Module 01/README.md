@@ -327,6 +327,9 @@ We can return values from a function when we use the ```return``` statement, thi
 		// If is an invalid number it will return NaN
 		result = Number("hello") // NaN
 
+		result = parseInt(' '); // NaN
+		
+
 		//Convert to String
 		result = String(324) // "324", this way can turn undefined and null values
 		result = (324).toString() // "324" while this way will trhow error when converting undefined or null

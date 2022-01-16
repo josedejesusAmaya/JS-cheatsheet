@@ -10,7 +10,7 @@ It is installed in your project's directory.
 It is installed in your system available to all projects.
 
 ### What exactly are dev dependencies?
-It basically tells npm to install these as dev tools. Wich means they won't be included in your production bill, but used throughout development.
+It basically tells npm to install these as dev tools. Wich means they won't be included in your production build, but used throughout development.
 So when you compile the production bill, these dependencies won't be included.
 
 Check for updates of our locally dependencies

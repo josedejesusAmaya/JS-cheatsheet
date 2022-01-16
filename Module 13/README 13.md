@@ -70,6 +70,30 @@ let len: number = (<string>value).length;
 	}
 ```
 
+#### Literal Types
+A literal is a more concrete sub-type of a collective type. What this means is that `"Hello World"` is a `string`, but a `string` is not `"Hello World"` inside the type system.
+There are three sets of literal types available in TypeScript today: strings, numbers, and booleans; by using literal types you can allow an exact value which a string, number, or boolean must have.
+```ts
+	type Size = 8 | 16 | 32;
+	interface MapConfig {
+		lng: number;
+		lat: number;
+		tileSize: Size;
+	}
+
+	const createMap = (lng: number, lat: number, tileSize: number): MapConfig => {
+		const newMap: MapConfig = {
+			lng,
+			lat,
+			tileSize: tileSize as Size // cast
+		}
+		return newMap;
+	}
+	
+	const fool = createMap(1,2,3);
+	console.log(fool);
+```
+
 #### Types in TS
 1. Boolean
 2. Number
@@ -132,6 +156,18 @@ To put all the related variables or constants
 ```
 
 By default an enum is number based, starting at zero, and each option is assigned an  increment by one. This is useful when the value is not important.
+```ts
+	enum UserResponse {
+		No = 0,
+		Yes = 1,
+	}
+	
+	function respond(recipient: string, message: UserResponse): void {
+		// ...
+	}
+
+	respond("Princess Caroline", UserResponse.Yes);
+```
 
 #### Gradual typing
 Is what allows you to choose when and how TypeScript applies typing to your code. In other words, to tell TS to butt out whenever you need it to.
@@ -140,6 +176,45 @@ Is what allows you to choose when and how TypeScript applies typing to your code
 Interfaces definitions have no impact on the code that's rendered. In fact the very first thing that the TS compiler does is digest these interfaces to remember them for later, and then completly removes them from the code.
 
 The more information you can give to TS the better it can help you. 
+
+Interfaces can inherit properties from another Interface.
+```ts
+	interface User {
+		name: string;
+		age: number;
+	}
+
+	interface Employee extends User {
+		job: string;
+	}
+
+	const user = Employe = {
+		name: "Pepe",
+		age: "27",
+		job: "software developer"
+	}
+```
+
+Interfaces are blueprints of a class
+```ts
+	interface Authentication {
+		apihost?: string;
+		login(email: string, password: string): string | null;
+		register(data: { email: string; password: string }): boolean;
+	}
+
+	class AuthenticationClient implements Authentication {
+		apihost?: string;
+		
+		login(email: string, password: string): string | null {
+			return null;
+		}
+		
+		register(data: { email: string; password: string }): boolean {
+			return false;
+		}
+	}
+```
 
 #### Downleveling
 Template strings are a feature from a version of ECMAScript called ECMAScript 2015 (a.k.a. ECMAScript 6, ES2015, ES6, etc. - _don’t ask_). TypeScript has the ability to rewrite code from newer versions of ECMAScript to older ones such as ECMAScript 3 or ECMAScript 5 (a.k.a. ES3 and ES5). This process of moving from a newer or “higher” version of ECMAScript down to an older or “lower” one is sometimes called _downleveling_.
@@ -199,6 +274,14 @@ You can actually declare interfaces right inline anywhere that accepts a type
 	function totalLength(x: {length: number}, y: (string | any[])) { 
 		// ...
 	}
+```
+
+```ts
+	interface User {
+		name: 'Pepe' | 'Emi';
+	}
+
+	let user: User = { name: 'Ana' }; // Type '"Ana"' is not assignable to type '"Pepe" | "Emi"'.
 ```
 
 #### null and undefined
@@ -341,6 +424,8 @@ In TS we are using _access modifiers_
 	Visible to member within the same class and derived or extended classes. 
 * public (default)
 	Visible to all consumers.
+* abstract 
+	Abstract classes are base classes from wich other classes may ve derived. They may not be instatiated directly. Unlike an interface, an abstract class may contain implementation details for its members. Methods can be defined as abstracts, too. 
 ```ts
 	class InvertoryStore {
 		private _categories: Category[] = [];
@@ -484,4 +569,16 @@ When you mark a property as readonly, it can only be set when you initialize the
 ```ts
 	let c: Coordinate = { x: 5, y: 15 };
 	c.x = 20; // Cannot assign to 'x' because it is a read-only property.(2540)
+```
+
+```ts
+	class Person() {
+		// dni: number; we don't need to add this property it'll be added automatically
+		constructor(readonly dni: number) {
+			// this.dni = dni;
+		}
+	}
+
+	const user: Person = new Person(234535);
+	user.dni = 12546; // Cannot assign to 'dni' because it is a read-only property.(2540)
 ```
