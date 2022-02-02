@@ -4,7 +4,7 @@ Dependencies are packages that are used in all of your projects and come with a 
 
 ### Adding packages locally or globally
 #### Locally
-It is installed in your project's directory.
+It is installed in your project's directory. This is npm *install*'s *default* behavior.
 
 #### Globally -g or -global
 It is installed in your system available to all projects.
@@ -30,7 +30,7 @@ Or use the install command again
 	npm uninstall name
 ```
 
-### Semantic Versioning
+### Semantic Versioning - Semver rule
 1.4.2
 * Major new releases: Like a full new version of a software.
 * Minor releases: Like adding new functions to this major release or a new tool.
@@ -86,7 +86,7 @@ By FB and usually faster.
 ### Requirements for publishing
 - npm account
 - Well-documentated README file
-- Scoped package name: unique, descriptive, meetd npm policies (example: @angular/cli or @angular/core).
+- Scoped package name: unique, descriptive, meet npm policies (example: @angular/cli or @angular/core).
 - Unscoped: not owned already. spelled similary, confusing (example: Reack or Redux).
 
 ### Dist-Tags
@@ -128,7 +128,7 @@ By default scope packages are publish as private.
 	```
 2. Add a tag and publish it.
 
-### How to publish public scope packages
+### How to publish **public** scope packages
 ```
 	npm publish --access public
 ```

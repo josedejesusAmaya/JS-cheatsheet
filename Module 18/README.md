@@ -81,8 +81,7 @@ const Server = http.createServer((req, res) => {
   res.end();
 });
 
-Server.listen(3000);
-.listen(3000); // Server listening on port 3000
+Server.listen(3000); // Server listening on port 3000
 ```
 Output:
 ```
@@ -228,7 +227,7 @@ door.removeListener('open', doSomething)
 #### NodeJS vs Browser
 You don't have `document`, `window` and all the other objects that are provided by the browser.
 
-And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the filesystem access functionality.
+And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the file system access functionality.
 
 Another big difference is that in Node.js you control the environment. Not like in browser that your target are all the browser that the user can use.  This means that you can write all the modern ES6-7-8-9 JavaScript that your Node.js version supports.
 
@@ -264,4 +263,4 @@ asyncOperation ( params.., function ( err, returnValues.. ) {
 });
 ```
 
-You will almost always want to follow the [error callback convention](https://nodejs.org/en/knowledge/errors/what-are-the-error-conventions/), since most Node.js users will expect your project to follow them. The general idea is that the callback is the last parameter. The callback gets called after the function is done with all of its operations. Traditionally, the first parameter of the callback is the `error` value. If the function hits an error, then they typically call the callback with the first parameter being an Error object. If it cleanly exits, then they will call the callback with the first parameter being null and the rest being the return value(s).
+You will almost always want to follow the [error callback convention](https://nodejs.org/en/knowledge/errors/what-are-the-error-conventions/), since most Node.js users will expect your project to follow them. The general idea is that **the callback is the last parameter**. The callback gets called after the function is done with all of its operations. Traditionally, **the first parameter of the callback is the `error` value**. If the function hits an error, then they typically call the callback with the first parameter being an Error object. If it cleanly exits, then they will call the callback with the first parameter being null and the rest being the return value(s).
