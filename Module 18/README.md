@@ -1,10 +1,16 @@
 ### Module 18
 #### NodeJS Setup
 The only thing you need to run nodejs is to install it.
-There are several ways to do it, we recommend checking the offcial website and downloading the LTS(Long Term Support) version.
+There are several ways to do it, we recommend checking the offcial website and downloading the LTS(Long Term Support) instead the Current version that have the latest features.
+Another way is using the NVM for Node Version Manager in convinantion with the REPL (Read Eval Print Loop) where only you need to use:
+```js
+	node .
+```
+
 #### Introduccion
 Node.js is a server-side platform built on Google Chrome's JavaScript Engine (V8 Engine). Node.js was developed by Ryan Dahl in 2009.
-Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+Node.js uses the "Single Threaded Event Loop" architecture to handle multiple clients at the same time, perfect for data-intensive real-time applications that run across distributed devices.
+
 ##### Features of Node.js
 
 Following are some of the important features that make Node.js the first choice of software architects.
@@ -29,6 +35,9 @@ Following are the areas where Node.js is proving itself as a perfect technology 
 ##### Where Not to Use Node.js?
 
 It is not advisable to use Node.js for CPU intensive applications.
+In general, blocking, processor-intensive, and computational-intensive programs fall under this category.
+[When You Should and Shouldn’t Use Node.js for Your Project (livecodestream.dev)](https://livecodestream.dev/post/when-you-should-and-should-not-use-nodejs-for-your-project/)
+
 #### Global Object
 The global object in node is the `globalThis` which is equal to the `global` object, this object has the built-in methods like `setTimeout`, `setInterval`, and another methods.
 Unlike the browser `this` is not equal to the `global` which is the global object, instead `this`  makes reference to the `module.exports` object, there are objects or properties that may be confused with global objects, but this objects or properties have module scope, such as:
@@ -81,7 +90,8 @@ const Server = http.createServer((req, res) => {
   res.end();
 });
 
-Server.listen(3000); // Server listening on port 3000
+Server.listen(3000);
+.listen(3000); // Server listening on port 3000
 ```
 Output:
 ```
@@ -194,6 +204,9 @@ For example:
 -   `fs.write()`
 -   `fs.writeSync()`
 #### Events
+Node.js is perfect for event-driven applications.
+Every action on a computer is an event. Like when a connection is made or a file is opened.
+Objects in Node.js can fire events, like the readStream object fires events when opening and closing a file.
 The `events` module provides us the EventEmitter class, which is key to working with events in Node.js.
 ```js
 const EventEmitter = require('events')
@@ -227,7 +240,7 @@ door.removeListener('open', doSomething)
 #### NodeJS vs Browser
 You don't have `document`, `window` and all the other objects that are provided by the browser.
 
-And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the file system access functionality.
+And in the browser, we don't have all the nice APIs that Node.js provides through its modules, like the filesystem access functionality.
 
 Another big difference is that in Node.js you control the environment. Not like in browser that your target are all the browser that the user can use.  This means that you can write all the modern ES6-7-8-9 JavaScript that your Node.js version supports.
 
@@ -240,27 +253,27 @@ There are many databases technologies, nodejs has packages to work with most of 
 	- Structured Query Language
 	- Up-front design
 	- Sometimes perfomrance and query benefits
-	- Sometimes performance hits from overhead
+	- Sometimes performance hits from overhead.
+	
+[MySQL](https://www.xplenty.com/integrations/mysql/), [Oracle](https://www.xplenty.com/integrations/oracle/), [PostgreSQL](https://www.xplenty.com/integrations/postgresql/), and [Microsoft SQL Server](https://www.xplenty.com/integrations/microsoft-sql-server/).
+
+A SQL database is a great fit for transaction-oriented systems such as customer relationship management tools, accounting software, and e-commerce platforms.
+	
 - `NoSQL`
 	- No structure, just collections of any data.
 	- Less or no up-front design
 	- Sometimes performance gains
-You can access to databases in nodejs and create, read, update, delete with your application, even if they are locally or hosted databases
+
+[MongoDB](https://www.xplenty.com/integrations/mongodb/), BigTable, Redis, RavenDB Cassandra, HBase, Neo4j and CouchDB.
+You can access to databases in nodejs and create, read, update, delete with your application, even if they are locally or hosted databases.
+
+A NoSQL database is a much better fit to store data like article content, social media posts, sensor data, and other types of unstructured data that won’t fit neatly into a table.
+
+## The five critical differences of SQL vs NoSQL:
+
+1.  SQL databases are relational, NoSQL are non-relational.
+2.  SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.
+3.  SQL databases are vertically scalable, NoSQL databases are horizontally scalable.
+4.  SQL databases are table based, while NoSQL databases are document, key-value, graph or wide-column stores.
+5.  SQL databases are better for multi-row transactions, NoSQL are better for unstructured data like documents or JSON.
 	
-### What is typically the first argument passed to a node.js callback handler
-```javascript
-function asyncOperation ( a, b, c, callback ) {
-  // ... lots of hard work ...
-  if ( /* an error occurs */ ) {
-    return callback(new Error("An error has occurred"));
-  }
-  // ... more work ...
-  callback(null, d, e, f);
-}
-
-asyncOperation ( params.., function ( err, returnValues.. ) {
-  //This code gets run after the async operation gets run
-});
-```
-
-You will almost always want to follow the [error callback convention](https://nodejs.org/en/knowledge/errors/what-are-the-error-conventions/), since most Node.js users will expect your project to follow them. The general idea is that **the callback is the last parameter**. The callback gets called after the function is done with all of its operations. Traditionally, **the first parameter of the callback is the `error` value**. If the function hits an error, then they typically call the callback with the first parameter being an Error object. If it cleanly exits, then they will call the callback with the first parameter being null and the rest being the return value(s).
