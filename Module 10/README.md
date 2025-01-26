@@ -10,6 +10,7 @@ These are the top 8 types of JavaScript Events:
 6.  ##### Mutation events and observers
 7.  ##### HTML5 events
 8.  ##### CSS events
+
 #### Event phases
 There are three different phases during lifecycle of an JavaScript event in that order.
 1. Capturing Phase - the event goes down to the element.
@@ -45,6 +46,7 @@ There are three different phases during lifecycle of an JavaScript event in that
 	2 'father' //target phase
 	```
 2. ##### Capturing
+	In the capturing phase, events propagate from **the Window down through the DOM tree to the target node**.
 	Event Capturing is the first to occur. The event first goes through the ancestors chain down to the element (capturing phase), then it reaches the target and triggers there (target phase), and then it goes up (bubbling phase), calling handlers on its way.
 	The `addEventListener` method only executes on the targeting and the bubbling phase -as we saw on the example above- by natural behavior, but we can execute it in the Capturing phase, by adding `true` or `{capture: true}` as a third parameter.
 	```
@@ -140,3 +142,54 @@ For instance:
 There are two ways to tell the browser we don’t want it to act:
 -   The main way is to use the `event` object. There’s a method `event.preventDefault()`.
 -   If the handler is assigned using `on<event>` (not by `addEventListener`), then returning `false` also works the same.
+
+What's the difference between event.preventDefault() and event.stopPropagation() methods?
+`stopPropagation` prevents further propagation of the current event in the capturing and bubbling phases.
+
+`preventDefault` prevents the default action the browser makes on that event.
+
+##### Examples
+**stopPropagation**
+```javascript
+$("#but").click(function (event) {
+  event.stopPropagation()
+})
+$("#foo").click(function () {
+  alert("parent click event fired!")
+})
+```
+
+```xml
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div id="foo">
+  <button id="but">button</button>
+</div>
+```
+
+**preventDefault**
+```javascript
+$("#but").click(function (event) {
+  event.preventDefault()
+})
+$("#foo").click(function () {
+  alert("parent click event fired!")
+})
+```
+
+```xml
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div id="foo">
+  <button id="but">button</button>
+</div>
+```
+
+With `stopPropagation`, only the **`button`'s click handler** is called while the **`div`'s click handler** never fires.
+
+Where as if you use `preventDefault`, only the browser's default action is stopped but the div's click handler still fires.
+
+[javascript - What's the difference between event.stopPropagation and event.preventDefault? - Stack Overflow](https://stackoverflow.com/questions/5963669/whats-the-difference-between-event-stoppropagation-and-event-preventdefault)
+
+How to know if the event.preventDefault() method was used in an element?
+You can check the event object's [`defaultPrevented`](https://developer.mozilla.org/en-US/docs/Web/API/event.defaultPrevented) property (which is a boolean indicating if `preventDefault` was ever called for that particular event object).
+
+[javascript - How to check if an event was prevented - Stack Overflow](https://stackoverflow.com/questions/17035643/how-to-check-if-an-event-was-prevented)
