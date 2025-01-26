@@ -1,4 +1,3 @@
-## Module 07:
 - ### Prototype, prototype chaining
 	- Prototypes are the mechanism by which JavaScript objects inherit features from one another. Prototypes can be used to add properties and methods into existing constructor.
 	- In the case you want to add one property into an existing constructor, you can’t add it directly like this.

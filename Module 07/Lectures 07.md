@@ -1,4 +1,3 @@
-### Module 07
 - #### Prototype and Prototype Chaining
 	1. [Understanding JavaScript Prototype and Prototype Chaining | by Premal Katigar | Medium](https://medium.com/@premal.katigar/understanding-javascript-prototype-and-prototype-chaining-1378cbe32aa7).
 - ### __proto__

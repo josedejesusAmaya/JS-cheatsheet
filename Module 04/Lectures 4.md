@@ -1,4 +1,3 @@
-### Module 04:
 - #### Variable scope
 1. https://www.w3schools.com/js/js_scope.asp
 2. https://developer.mozilla.org/es/docs/Glossary/Scope

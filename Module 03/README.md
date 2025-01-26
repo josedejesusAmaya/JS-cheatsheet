@@ -1,4 +1,3 @@
-## Module 03:
 - ### Block-scopes
     ##### What is Scope?
     Scope determines the visibility or accessibility of a variable or other resource in the area of your code.
