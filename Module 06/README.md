@@ -1,4 +1,3 @@
-### Module 06:
 - #### ES6 vs ES5 classes
  	ES6 provides new features as well as a cleaner approach for some of the existing features in ES5.
 	1. **Improved getter/setter property syntax.** The object properties require get/set methods to be called on them to access/modify their values. In the ES5 version, they were not widely used because the syntax was not that clean.

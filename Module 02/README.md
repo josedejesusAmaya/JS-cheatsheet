@@ -1,4 +1,3 @@
-## Module 02:
 - ### Creating an array
 	1. Using the array literals
 	```js

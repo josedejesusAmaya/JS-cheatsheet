@@ -1,4 +1,3 @@
-### Module 04:
 - #### Variable scope
     - Scope essentially means where these variables are available for use. 
     - Different Scopes

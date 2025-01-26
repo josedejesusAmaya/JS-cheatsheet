@@ -1,4 +1,3 @@
-## Module 01:
 - ### How to run JS
 	Command line: with nodejs
 	```js

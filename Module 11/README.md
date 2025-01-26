@@ -1,4 +1,3 @@
-### Module 11
 - AJAX, XMLHTTPRequest   
 	What is AJAX?
 	AJAX is a technique for accessing web servers from a web page. Stands for Asynchronous JavaScript And XML and is not a programming language.

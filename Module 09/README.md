@@ -1,4 +1,3 @@
-### Module 09
 - #### `try...catch`
 	The `try` statement consists of a `try` block, which contains one or more statements. `{}` must always be used, even for single statements. At least one `catch` block, or a `finally` block, must be present. This gives us three forms for the `try` statement:
 	-   `try...catch`

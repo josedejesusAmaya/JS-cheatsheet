@@ -1,4 +1,3 @@
-### Module 18
 #### NodeJS Setup
 The only thing you need to run nodejs is to install it.
 There are several ways to do it, we recommend checking the offcial website and downloading the LTS(Long Term Support) instead the Current version that have the latest features.

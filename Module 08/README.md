@@ -1,4 +1,3 @@
-### Module 08:
 - #### Async Javascript
 	Normally, a given program's code runs straight along, with only one thing happening at once. If a function relies on the result of another function, it has to wait for the other function to finish and return, and until that happens, the entire program is essentially stopped from the perspective of the user.
 	

@@ -1,5 +1,3 @@
-### Module 10
-
 #### Event types
 These are the top 8 types of JavaScript Events:
 1.  ##### User Interface events

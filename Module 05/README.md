@@ -1,4 +1,3 @@
-### Module 05:
 - #### Creating functions
 	- As a Statement: A function statement starts with the function keyword. It can return a primitive type value, object, or another function. The main characteristic of a function statement is it is hoisted at the top of the execution context. Therefore, you can call a function statement before it is declared
 	```js
